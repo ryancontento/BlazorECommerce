@@ -2,6 +2,7 @@ global using BlazorECommerce.Shared;
 global using Microsoft.EntityFrameworkCore;
 global using BlazorECommerce.Server.Data;
 using Microsoft.AspNetCore.ResponseCompression;
+using BlazorECommerce.Server.Services.ProductService;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +17,8 @@ builder.Services.AddRazorPages();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IProductService, ProductService>();
 
 var app = builder.Build();
 
